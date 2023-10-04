@@ -15,12 +15,15 @@ import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent  } from './auth/login/login.component';
+import { RegisterComponnet } from './auth/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
     CreatePostComponent,
-
+    LoginComponent ,
+    RegisterComponnet
   ],
   imports: [
     BrowserModule,
