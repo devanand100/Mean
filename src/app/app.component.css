@@ -1,0 +1,17 @@
+app-root {
+    padding: 200px;
+}
+main{
+    max-width: 500px;
+    margin: 20px auto;
+}
+.spacer  {
+    flex: 1 1 auto;
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+}

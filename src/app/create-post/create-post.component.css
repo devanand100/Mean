@@ -1,0 +1,18 @@
+.post-form{
+    display: flex;
+    flex-direction: column;
+}
+.mat-spinner{
+    margin:  auto;
+}
+.image-field{
+    display: flex;
+    /* flex-direction: column; */
+    gap: 10px;
+    align-items: center;
+}
+.image-field img{
+    margin:  10px 0 0 0;
+    height: 3rem;
+    width: 3rem;
+}
