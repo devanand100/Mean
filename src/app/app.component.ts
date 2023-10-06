@@ -7,6 +7,7 @@ import { Post } from './post/post';
   styleUrls: ['./app.component.css' ]
 })
 export class AppComponent  {
+  
   title = 'ang';
   
 }

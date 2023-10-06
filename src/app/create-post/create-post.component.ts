@@ -30,9 +30,9 @@ export class CreatePostComponent implements OnInit {
           this.mode = "edit" ;
           this.isLoading = true ;
            this.postService.getPost(paramMap.get("id")!).subscribe((postData)=>{
-              this.post = {id:postData._id! , title:postData.title , description:postData.description} ;
-
-              this.form.setValue({title:this.post.title , description:this.post.description})
+              this.post = {id:postData._id! , title:postData.title , description:postData.description , imagePath:postData.imagePath} ;
+              this.imageUrl = this.post.imagePath
+              this.form.setValue({title:this.post.title , description:this.post.description , image:this.post.imagePath})
               this.isLoading = false ;
            }); 
       }else{
@@ -75,7 +75,6 @@ export class CreatePostComponent implements OnInit {
     this.isLoading = true ;
 
     const {title , description , image} = this.form.value
-
 
     if(this.mode === "edit" && this.post){
       this.postService.updatePost( this.post.id,title , description , image)

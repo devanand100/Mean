@@ -12,18 +12,23 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
 import {MatButtonModule} from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent  } from './auth/login/login.component';
 import { RegisterComponnet } from './auth/register/register.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { HeaderComponent } from './header/header.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
     CreatePostComponent,
     LoginComponent ,
-    RegisterComponnet
+    RegisterComponnet,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +43,10 @@ import { RegisterComponnet } from './auth/register/register.component';
     MatButtonModule ,
     HttpClientModule ,
     MatProgressSpinnerModule ,
-    ReactiveFormsModule
+    ReactiveFormsModule , 
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS , useClass:AuthInterceptor  , multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

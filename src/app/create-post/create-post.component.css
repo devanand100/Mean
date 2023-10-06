@@ -7,7 +7,7 @@
 }
 .image-field{
     display: flex;
-    /* flex-direction: column; */
+    margin: 10px 0;
     gap: 10px;
     align-items: center;
 }

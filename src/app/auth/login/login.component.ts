@@ -1,16 +1,19 @@
 
 import { Component } from "@angular/core";
 import { NgForm ,FormsModule } from "@angular/forms";
+import { AuthService } from "../auth.service";
 @Component({ 
     templateUrl:'./login.component.html',
     styleUrls:[ './login.component.css'] ,
 })
 export class LoginComponent {
 
+    constructor(private authService:AuthService){}
     onSubmit(form:NgForm){
         if(!form.valid){
             return
         }
-        console.log(form.value)
+       
+        this.authService.login(form.value)
     }
 }

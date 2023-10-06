@@ -8,3 +8,15 @@
 .mat-spinner{
     margin:  50px auto;
 }
+.post-body{
+    display: grid;
+    grid-template-columns:  140px 1fr;
+    gap: 10px;
+    & div {
+        text-align: left;
+    }
+    & img {
+        width: 100%;
+        border-radius: 5px;
+    }
+}

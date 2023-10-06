@@ -1,6 +1,6 @@
 export function errorHandler(err, req, res, next){
     
-    const errStatus =  res.statusCode || 500;
+    const errStatus =  req.statusCode || 400;
     const errmsg = err.message || "somthing went wrong" ;
 
     res.status(errStatus).json({
