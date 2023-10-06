@@ -6,13 +6,13 @@ export const auth = (req, res , next) => {
     if(!token){
         return res.status(401).json("auth failed")
     } 
-    console.log("token", token)
-     const user = jwt.verify( token , "Nm1N0p![Zi>qHh9-kD!wLX*acV&]4{");
+     const user =  jwt.verify( token , "Nm1N0p![Zi>qHh9-kD!wLX*acV&]4{");
+     
      req.user = user;
     next()
 }catch(error){
    if(error.name === "JsonWebTokenError"){
-    return res.status(401).send("auth failed")
+     next(new Error("not authorized"))
    }
     next(error);
 }

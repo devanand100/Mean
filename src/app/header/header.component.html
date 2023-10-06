@@ -7,10 +7,10 @@
                 <a *ngIf="loginStatus" mat-button routerLink="create-post" routerLinkActive="mat-accent">Create Post</a>
             </li>
             <li>
-                <a *ngIf="!loginStatus" mat-button routerLink="register" routerLinkActive="mat-accent">Register</a>
+                <a *ngIf="!loginStatus" mat-button routerLink="/auth/register" routerLinkActive="mat-accent">Register</a>
             </li>
             <li>
-                <a *ngIf="!loginStatus" mat-button routerLink="login" routerLinkActive="mat-accent">Login</a>
+                <a *ngIf="!loginStatus" mat-button routerLink="/auth/login" routerLinkActive="mat-accent">Login</a>
             </li>
             <li>
                 <button mat-button *ngIf="loginStatus" (click)="logout()">Logout</button>

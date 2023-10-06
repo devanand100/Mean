@@ -7,19 +7,18 @@ export const register = async (req, res, next) => {
     const { email, password } = req.body;
 
     if (!email | !password) {
-      return res.status(400).send("email and password requeired");
+      throw new  Error("email and password requeired");
     }
 
     const user = await User.findOne({ email: email });
-    console.log(user)
-
+    
     if(user){
         throw new Error("User already registered")
     }
 
     
     const passwordEncrypted =  bcrypt.hashSync( password , 12);
-    console.log(passwordEncrypted)
+    
     const newUser = await User.create({ email:email, password:passwordEncrypted });
     
     res.status(200).json("successfully registered");

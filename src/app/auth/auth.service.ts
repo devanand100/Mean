@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
@@ -10,6 +10,7 @@ export interface authModel {
 }
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+  
   constructor(private http: HttpClient, private router: Router) {}
   url = 'http://localhost:3000/api/user/';
 
@@ -41,14 +42,19 @@ export class AuthService {
         this.saveAuthData(
           data.token,
           new Date(new Date().getTime() + data.expiresIn * 1000)
-        );
-      });
+        )
+      } , 
+      (error:any) => this.authStatus.next(false)    ) 
+     
   }
 
   register(body: authModel) {
     this.http.post<authModel>(this.url + 'register', body).subscribe(() => {
-      this.router.navigate(['/login'])
-    });
+      this.router.navigate(['/login']); 
+      this.authStatus.next(false);
+    },
+    (error)=> this.authStatus.next(false) 
+    );
   }
 
   logout() {

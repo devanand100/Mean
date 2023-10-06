@@ -1,5 +1,6 @@
 <h2 >Register</h2>
 
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
 <mat-card>
     <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
         <mat-form-field>
